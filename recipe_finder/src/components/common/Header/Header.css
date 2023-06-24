@@ -1,0 +1,16 @@
+#headerNavBar{
+    background-color: rgb(29, 41, 70) !important;
+}
+.nav-link
+{
+    color:white !important;
+    font-family:'Ysabeau Infant', Courier;
+    font-size: 20px;
+}
+
+.navbar-brand
+{
+    color:white !important;
+    font-family:'Belanosima', Courier;
+    font-size: 30px;
+}
