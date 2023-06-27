@@ -11,7 +11,7 @@ function App() {
   const [recipeList, setRecipeList] = useState([
     {"title": "Homemade Dog Treat", 
     "imgUrl": "https://www.allrecipes.com/thmb/fedSW4_1HVEqm9lXlForeBsU7rY=/364x242/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2):format(webp)/133123-Peanut-Butter-and-Pumpkin-Dog-Treats-mfs-015-292437ac8ace4b019bb2a99ba7745f18.jpg",
-    "rate": 4.5,
+    "rate": 4,
     "popularity": 1021,
     "tag": "dog"
   }, 
