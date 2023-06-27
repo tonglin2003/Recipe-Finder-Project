@@ -1,7 +1,7 @@
-import Header from "../components/common/Header/Header";
-import Footer from "../components/common/Footer/Footer";
+import Header from "../../components/common/Header/Header";
+import Footer from "../../components/common/Footer/Footer";
 import { useLocation } from 'react-router-dom';
-import DisplayMultipleCards from "../components/common/DisplayCards/DisplayMultipleCards";
+import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards"
 
 
 

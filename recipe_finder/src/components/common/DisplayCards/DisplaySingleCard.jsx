@@ -38,7 +38,7 @@ export default function DisplaySingleCard({recipe})
                     </div>
                     
                     <br></br>
-                    <button class="button-74" role="button">See More</button>
+                    <button className="button-74" role="button">See More</button>
                 </div>
 
                 
