@@ -24,7 +24,7 @@ export default function FilterThroughTags( {applyFilter} )
             aria-expanded={isDropDownOpen ? "true" : "false"}
             onClick={() => setIsDropDownOpen(!isDropDownOpen)}
             >
-            Dropdown button
+            Filter by Tag
             </button>
             <div
             className={`dropdown-menu${isDropDownOpen ? " show" : ""}`}
