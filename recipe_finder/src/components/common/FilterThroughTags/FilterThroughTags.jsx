@@ -1,15 +1,12 @@
 import {React, useState, useEffect} from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function FilterThroughTags( {applyFilter} )
 {
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-    const [selectedTag, setselectedTag] = useState('');
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleTagApply = (tag) => {
-        setselectedTag(tag);
-        applyFilter(selectedTag);
+        applyFilter(tag);
       };
 
     return(

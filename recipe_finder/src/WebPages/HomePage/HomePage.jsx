@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
 import Header from '../../components/common/Header/Header';
@@ -12,14 +13,16 @@ import '../../components/common/Button-74.css';
 function HomePage({ recipeList }) {
   const [currentList, setCurrentList] = useState(recipeList);
 
-  const handleTagFilter = (tag) => {
+  const applyFilter = (tag) => {
+    console.log(tag);
     setCurrentList(recipeList.filter(element => element['tag'] === tag));
   }
 
-  useEffect(() => {
-    setCurrentList(recipeList); // Reset the currentList when recipeList changes
-  }, [recipeList]);
-
+  function displayRecipes() 
+  {
+    return <DisplayMultipleCards recipeList={currentList}/>
+  } 
+  
   return (
     <>
       <Header />
@@ -40,9 +43,9 @@ function HomePage({ recipeList }) {
         <h1 className='text-center' id="recipeTitle">Pet Recipe</h1>
         <p className='text-center' id="recipeSubtitle">Browse recipes for wholesome and homemade pet food and treats for your furry friends.</p>
         <hr className='w-75 mx-auto'></hr>
-        <FilterThroughTags applyFilter={handleTagFilter} />
+        <FilterThroughTags applyFilter={applyFilter} />
         <div id="displayCards">
-          <DisplayMultipleCards recipeList={currentList} />
+          {displayRecipes()}
         </div>
       </section>
       <Footer />
