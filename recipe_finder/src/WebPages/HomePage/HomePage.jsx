@@ -39,8 +39,8 @@ function HomePage({ recipeList }) {
         <div className='bg-blue-500' style={{ height: "50vh" }}>
           <div className='header-text'>
             <div className='content'>
-              <h2>Know more about your love</h2>
-              <h1 className='underline-heading'>Today</h1>
+              <h2>Try some new recipe for your </h2>
+              <h1 className='underline-heading'>Furry Friend</h1>
               <br></br>
               <button className='button-74 mt-3'>Get Started</button>
             </div>

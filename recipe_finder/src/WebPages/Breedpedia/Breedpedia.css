@@ -1,0 +1,19 @@
+.header-img2
+{
+  background-image: url("https://www.thewholepetvet.com/blog/wp-content/uploads/2022/04/iStock-1324099927.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.header-text
+{
+  background-color: rgba(23, 45, 66, 0.4);
+  height: 100%;
+  font-family: 'Belanosima', Courier;
+  color:#ffffff;
+  padding: 10% 1% 1% 1%;
+  font-weight: bold;
+  text-align: center;
+}

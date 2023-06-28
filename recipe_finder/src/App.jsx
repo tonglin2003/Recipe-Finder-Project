@@ -4,6 +4,7 @@ import { useState } from 'react';
 import HomePage from './WebPages/HomePage/HomePage';
 import SearchPage from './WebPages/SearchPage/SearchPage';
 import UserPage from './WebPages/UserPage/UserPage';
+import Breedpedia from './WebPages/Breedpedia/Breedpedia';
 
 
 function App() {
@@ -49,6 +50,20 @@ function App() {
     setRecipeList(prevList => [...prevList, newContent]);
   }
 
+  const [breedList, setbreedList] = useState(
+    [
+      {
+        "breed": "Pomeranian",
+        "imgUrl": "https://thehappypuppysite.com/wp-content/uploads/2021/10/adult-Pomeranian-header.jpg"
+      },
+      {
+        "breed": "Shiba Inu",
+        "imgUrl": "https://people.com/thmb/rrT3xyYMQjE54AyYWTEPbRyPrX0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(1019x505:1021x507)/hine-2000-4c3939a4483e4decae3c1e10f778afd2.jpg"
+      },
+
+    ]
+  );
+
   return (
     <Router>
       <Routes>
@@ -56,6 +71,8 @@ function App() {
         <Route path="/" element={<HomePage recipeList={recipeList}/>} />
         <Route path="/search" element={<SearchPage recipeList={recipeList}/>} />
         <Route path="/user/recipe" element={<UserPage addNewContent={addNewContent}/>} />
+        <Route path="/breedpedia" element={<Breedpedia breedList={breedList}/>} />
+
         
         
       </Routes>
