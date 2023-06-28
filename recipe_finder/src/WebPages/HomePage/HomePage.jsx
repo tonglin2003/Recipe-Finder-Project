@@ -19,11 +19,32 @@ import OrderBySelection from "../../components/common/OrderBySelection/OrderBySe
 import './HomePage.css';
 import '../../components/common/Button-74.css';
 
-function HomePage({ recipeList }) {
-  const [currentList, setCurrentList] = useState(recipeList);
+function HomePage( ) {
+  const [currentList, setCurrentList] = useState([]);
+
+  // fetch for recipes from the database
+  useEffect( () => {
+    let ignoreUseEffect = false;
+
+    async function fetchRecipes()
+    {
+      const response = await fetch('http://localhost:3000/recipe');
+      const recipes = await response.json();
+
+      if (!ignoreUseEffect) setCurrentList(recipes);
+      return currentList;
+    }
+
+    fetchRecipes();
+
+    return () => {
+      ignoreUseEffect = true;
+    }
+
+  }, []);
 
   const applyFilter = (tag) => {
-    setCurrentList(recipeList.filter(element => element['tag'] === tag));
+    setCurrentList(currentList.filter(element => element['tag'] === tag));
   }
 
   const applyOrderBy = (order) => {

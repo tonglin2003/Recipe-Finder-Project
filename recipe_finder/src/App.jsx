@@ -68,7 +68,7 @@ function App() {
     <Router>
       <Routes>
         
-        <Route path="/" element={<HomePage recipeList={recipeList}/>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<SearchPage recipeList={recipeList}/>} />
         <Route path="/user/recipe" element={<UserPage addNewContent={addNewContent}/>} />
         <Route path="/breedpedia" element={<Breedpedia breedList={breedList}/>} />

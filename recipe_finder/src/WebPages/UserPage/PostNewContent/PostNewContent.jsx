@@ -24,12 +24,24 @@ export default function PostNewContent({ addNewContent }) {
 
   const navigate = useNavigate();
 
-  const handleNewPostSubmit = (event) => {
+  // main function with the logic flow for posting new recipe!
+  const handleNewPostSubmit = async (event) => {
     event.preventDefault();
     if (postType === "recipe") {
-      alert("I got the request");
-      navigate('/');
-      addNewContent(formContent);
+      alert("Your recipe was added!");
+      const response = await fetch("http://localhost:3000/recipe",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formContent),
+      });
+
+      const newRecipe = await response.json();
+      alert(newRecipe);
+      //navigate('/'); // nav the user to the homepage
+
+
     } else {
       alert("Sorry, the blog section is currently unavailable.");
       navigate('/');
