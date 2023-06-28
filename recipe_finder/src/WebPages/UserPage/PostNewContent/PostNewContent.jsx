@@ -37,9 +37,8 @@ export default function PostNewContent({ addNewContent }) {
         body: JSON.stringify(formContent),
       });
 
-      const newRecipe = await response.json();
-      alert(newRecipe);
-      //navigate('/'); // nav the user to the homepage
+      // const newRecipe = await response.json();
+      navigate('/'); // nav the user to the homepage
 
 
     } else {

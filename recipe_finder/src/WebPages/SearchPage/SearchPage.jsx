@@ -2,16 +2,40 @@ import Header from "../../components/common/Header/Header";
 import Footer from "../../components/common/Footer/Footer";
 import { useLocation } from 'react-router-dom';
 import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards"
+import { useEffect, useState } from "react";
 
 
 
-export default function SearchPage({recipeList})
+export default function SearchPage()
 {
     const location = useLocation();
     const searchKeyword = new URLSearchParams(location.search);
     let searchTerm = searchKeyword.get('q').toLowerCase();
+    const [currentList, setCurrentList] = useState([]);
 
-    const filteredRecipe = recipeList.filter(element => {
+    
+      // fetch for recipes from the database
+      useEffect( () => {
+        let ignoreUseEffect = false;
+    
+        async function fetchRecipes()
+        {
+          const response = await fetch('http://localhost:3000/recipe');
+          const recipes = await response.json();
+    
+          if (!ignoreUseEffect) setCurrentList(recipes);
+          return currentList;
+        }
+    
+        fetchRecipes();
+    
+        return () => {
+          ignoreUseEffect = true;
+        }
+    
+      }, []);
+
+      const filteredRecipe = currentList.filter(element => {
         return element['title'].toLowerCase().includes(searchTerm);
       });
 
