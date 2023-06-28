@@ -8,3 +8,10 @@ Iteration 2: {url} is in format of 'http://localhost:5173'
   - filter function: located on the "{url}/", "filer by tag". Apply filter to the recipe, currently, there's only dog and cat tag. Note: it requires the user to click on the tag twice to display the correct recipes. (need to fix)
   - Add new recipe: Located in "{url}/user/recipe", or by clicking on "My Recipe" on the navbar. There is a form, allows users to post their own recipes.
         - note: since there's only use state in use, the new recipe made by the user will disappear after refreshing.
+    
+Iteration 3:
+  - added a new page for breed
+
+Iteration 4: 
+  - replaced all hared core list to json-server, including the homepage and the search page.
+  - also allowed the user to post their own recipe onto the homepage and save it in the db.json 
