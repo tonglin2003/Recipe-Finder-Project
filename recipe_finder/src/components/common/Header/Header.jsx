@@ -38,7 +38,7 @@ export default function Header()
                     <a className="nav-link" href="#">Adoption</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Sign In</a>
+                    <a className="nav-link" href="/login">Login</a>
                     </li>
                 </ul>
                 </div>

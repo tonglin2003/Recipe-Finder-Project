@@ -5,7 +5,8 @@ import HomePage from './WebPages/HomePage/HomePage';
 import SearchPage from './WebPages/SearchPage/SearchPage';
 import UserPage from './WebPages/UserPage/UserPage';
 import Breedpedia from './WebPages/Breedpedia/Breedpedia';
-
+import Login from './WebPages/UserSignUpLogin/Login'
+import SignUp from './WebPages/UserSignUpLogin/SignUp';
 
 function App() {
   // it will update the recipeList, but since it uses useState, the updated content will disappear after refreshing
@@ -14,6 +15,7 @@ function App() {
     setRecipeList(prevList => [...prevList, newContent]);
   }
 
+  // still thinking on if i should keep this page, so I haven't move it into db yet
   const [breedList, setbreedList] = useState(
     [
       {
@@ -36,6 +38,10 @@ function App() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/user/recipe" element={<UserPage addNewContent={addNewContent}/>} />
         <Route path="/breedpedia" element={<Breedpedia breedList={breedList}/>} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        
+
 
         
         
