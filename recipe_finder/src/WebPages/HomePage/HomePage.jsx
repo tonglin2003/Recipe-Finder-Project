@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
-import Header from '../../components/common/Header/Header';
-import Footer from '../../components/common/Footer/Footer';
 
 // display multiple recipe cards, takes in attr, recipeList, an array of recipe obj
 import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards";
@@ -20,6 +18,7 @@ import './HomePage.css';
 import '../../components/common/Button-74.css';
 
 function HomePage( ) {
+  const [fullList, setFullList] = useState([]);
   const [currentList, setCurrentList] = useState([]);
 
   // fetch for recipes from the database
@@ -31,7 +30,10 @@ function HomePage( ) {
       const response = await fetch('http://localhost:3000/recipe');
       const recipes = await response.json();
 
-      if (!ignoreUseEffect) setCurrentList(recipes);
+      if (!ignoreUseEffect) {
+        setCurrentList(recipes);
+        setFullList(recipes)
+      }
       return currentList;
     }
 
@@ -44,7 +46,7 @@ function HomePage( ) {
   }, []);
 
   const applyFilter = (tag) => {
-    setCurrentList(currentList.filter(element => element['tag'] === tag));
+    setCurrentList(fullList.filter(element => element['tag'] === tag));
   }
 
   const applyOrderBy = (order) => {
@@ -55,7 +57,6 @@ function HomePage( ) {
   
   return (
     <>
-      <Header />
       <section className='header-img'>
         <div className='bg-blue-500' style={{ height: "50vh" }}>
           <div className='header-text'>
@@ -88,7 +89,6 @@ function HomePage( ) {
           <DisplayMultipleCards recipeList={currentList}/>
         </div>
       </section>
-      <Footer />
     </>
   )
 }

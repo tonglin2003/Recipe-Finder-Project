@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../../components/common/Header/Header';
-import Footer from '../../components/common/Footer/Footer';
 import PostNewContent from './PostNewContent/PostNewContent';
 import {
   CDBSidebar,
@@ -15,7 +13,6 @@ import {
 export default function UserPage({ addNewContent }) {
   return (
     <>
-      <Header />
       <div className="d-flex">
         <CDBSidebar style={{ height: "95vh", position: "fixed"}}>
           <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>My Account</CDBSidebarHeader>
@@ -41,8 +38,6 @@ export default function UserPage({ addNewContent }) {
           <PostNewContent addNewContent={addNewContent}/>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

@@ -1,9 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
-import Header from '../../components/common/Header/Header';
-import Footer from '../../components/common/Footer/Footer';
-
 // display multiple recipe cards, takes in attr, recipeList, an array of recipe obj
 import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards";
 
@@ -14,7 +11,6 @@ function Breedpedia({ breedList }) {
 
   return (
     <>
-      <Header />
       <section className='header-img2'>
         <div className='bg-blue-500' style={{ height: "50vh" }}>
           <div className='header-text'>
@@ -31,7 +27,6 @@ function Breedpedia({ breedList }) {
       <section className='mx-auto w-75'>
         <DisplayMultipleCards breedList={breedList}/>
       </section>
-      <Footer />
     </>
   )
 }

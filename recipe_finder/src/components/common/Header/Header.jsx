@@ -1,5 +1,6 @@
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
+import { Link } from 'react-router-dom';
 
 export default function Header()
 {
@@ -7,7 +8,7 @@ export default function Header()
         <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" id="headerNavBar">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Pawter</a>
+                <Link className="navbar-brand" to={"/"}>Pawter</Link>
                 <SearchBar/>
                 <button className="navbar-toggler" 
                 type="button" data-bs-toggle="collapse" 
@@ -23,22 +24,22 @@ export default function Header()
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/">Home</a>
+                    <Link className="nav-link active" aria-current="page" to={"/"}>Home</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="/user/recipe">My Account</a>
+                    <Link className="nav-link active" aria-current="page" to={"/user/recipe"}>My Account</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/breedpedia">Breedpedia</a>
+                    <Link className="nav-link" to="/breedpedia">Breedpedia</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Pet Recipes</a>
+                    <Link className="nav-link" to="#">Pet Recipes</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Adoption</a>
+                    <Link className="nav-link" to="#">Adoption</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/login">Login</a>
+                    <Link className="nav-link" to="/login">Login</Link>
                     </li>
                 </ul>
                 </div>
