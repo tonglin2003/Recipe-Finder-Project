@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards"
 import { useEffect, useState } from "react";
+import { fetchAllRecipe } from '../../RequestAPI/RecipesAPI';
 
 
 
@@ -9,33 +10,13 @@ export default function SearchPage()
     const location = useLocation();
     const searchKeyword = new URLSearchParams(location.search);
     let searchTerm = searchKeyword.get('q').toLowerCase();
-    const [currentList, setCurrentList] = useState([]);
 
-    
-      // fetch for recipes from the database
-      useEffect( () => {
-        let ignoreUseEffect = false;
-    
-        async function fetchRecipes()
-        {
-          const response = await fetch('http://localhost:3000/recipe');
-          const recipes = await response.json();
-    
-          if (!ignoreUseEffect) setCurrentList(recipes);
-          return currentList;
-        }
-    
-        fetchRecipes();
-    
-        return () => {
-          ignoreUseEffect = true;
-        }
-    
-      }, []);
+    // fetch recipe list from the database
+    const currentList = fetchAllRecipe();
 
-      const filteredRecipe = currentList.filter(element => {
-        return element['title'].toLowerCase().includes(searchTerm);
-      });
+    const filteredRecipe = currentList.filter(element => {
+      return element['title'].toLowerCase().includes(searchTerm);
+    });
 
 
     return(

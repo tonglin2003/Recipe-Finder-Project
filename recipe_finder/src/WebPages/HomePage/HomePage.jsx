@@ -45,10 +45,12 @@ function HomePage( ) {
 
   }, []);
 
+  // change the currentList to match the filter that user chose
   const applyFilter = (tag) => {
     setCurrentList(fullList.filter(element => element['tag'] === tag));
   }
 
+    // change the currentList to match the order that user chose
   const applyOrderBy = (order) => {
     const orderedList = [...currentList].sort((element1, element2) => element2[order] - element1[order]);
     setCurrentList(orderedList);

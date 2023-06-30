@@ -36,9 +36,10 @@ function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/user/recipe" element={<UserPage addNewContent={addNewContent} />} />
           <Route path="/breedpedia" element={<Breedpedia breedList={breedList} />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/signup/" element={<SignUp />} />
+          <Route path="/login/" element={<Login />} />
           <Route path="/*" element={<ErrorPage />} />
+          
         </Routes>
         <Footer />
       </div>
