@@ -1,4 +1,5 @@
 import "./DisplaySingleCard.css";
+import { Link } from "react-router-dom";
 
 const StarRating = ({ rating, popularity }) => {
     const stars = [];
@@ -38,7 +39,7 @@ export default function DisplayRecipeSingleCard({recipe})
                     </div>
                     
                     <br></br>
-                    <button className="button-74" role="button">See More</button>
+                    <button className="button-74" role="button"><Link to={`/recipe/${recipe['id']}`}>See More</Link></button>
                 </div>
 
                 

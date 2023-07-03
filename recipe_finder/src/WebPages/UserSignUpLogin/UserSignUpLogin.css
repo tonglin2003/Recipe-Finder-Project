@@ -1,6 +1,5 @@
 .formImg
 {
-  background-image: url("https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -10,7 +9,7 @@
 .loginContainer
 {
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    height: 100vh; /* Set height of container */
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
 }

@@ -11,6 +11,9 @@ import Header from './components/common/Header/Header';
 import Footer from './components/common/Footer/Footer';
 import ErrorPage from './ErrorPage/ErrorPage';
 
+import RecipePage from './WebPages/RecipePage/RecipePage';
+import { loader as recipeLoader } from './WebPages/RecipePage/RecipePage';
+
 function App() {
   function addNewContent(newContent) {
     setRecipeList(prevList => [...prevList, newContent]);
@@ -29,22 +32,25 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/user/recipe" element={<UserPage addNewContent={addNewContent} />} />
-          <Route path="/breedpedia" element={<Breedpedia breedList={breedList} />} />
-          <Route path="/signup/" element={<SignUp />} />
-          <Route path="/login/" element={<Login />} />
-          <Route path="/*" element={<ErrorPage />} />
-          
-        </Routes>
-        <Footer />
-      </div>
+        <div>
+          <Header />
+          <Routes>
+            
+            <Route path="/" element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/user/recipe" element={<UserPage addNewContent={addNewContent} />} />
+            <Route path="/breedpedia" element={<Breedpedia breedList={breedList} />} />
+            <Route path="/signup/" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/recipe/:recipeId" element={<RecipePage />} loader={recipeLoader}/>
+            <Route path="/*" element={<ErrorPage />} />
+
+          </Routes>
+          <Footer />
+        </div>
     </Router>
-  );
+      );
 }
 
 export default App;
+
