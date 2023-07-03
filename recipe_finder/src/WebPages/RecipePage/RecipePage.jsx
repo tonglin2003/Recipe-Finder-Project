@@ -1,5 +1,8 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLoaderData } from 'react-router-dom';
+
+
 
 export async function loader({params})
 {

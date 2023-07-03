@@ -1,6 +1,7 @@
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 export default function Header()
 {
@@ -8,7 +9,7 @@ export default function Header()
         <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" id="headerNavBar">
             <div className="container-fluid">
-                <Link className="navbar-brand" to={"/"}>Pawter</Link>
+                <Link className="navbar-brand" to={"/home"}>Pawter</Link>
                 <SearchBar/>
                 <button className="navbar-toggler" 
                 type="button" data-bs-toggle="collapse" 
@@ -47,6 +48,13 @@ export default function Header()
         </nav>
         <br></br>
         <br></br>
+        <div>
+            <Outlet/>
+        </div>
+
+        <div>
+            <Footer/>
+        </div>
         
         </>
     );
