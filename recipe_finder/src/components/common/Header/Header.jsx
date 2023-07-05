@@ -28,7 +28,7 @@ export default function Header()
                     <Link className="nav-link active" aria-current="page" to={"/"}>Home</Link>
                     </li>
                     <li className="nav-item">
-                    <Link className="nav-link active" aria-current="page" to={"/user/recipe"}>My Account</Link>
+                    <Link className="nav-link active" aria-current="page" to={"/user/post"}>My Account</Link>
                     </li>
                     <li className="nav-item">
                     <Link className="nav-link" to="/breedpedia">Breedpedia</Link>

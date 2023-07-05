@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./PostNewContent.css";
 import '../../../components/common/Button-74.css';
 
-export default function PostNewContent({ addNewContent }) {
+export default function PostNewContent() {
   const [formContent, setFormContent] = useState({
     postType: "",
     title: "",

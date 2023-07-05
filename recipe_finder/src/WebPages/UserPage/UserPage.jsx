@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate, useParams, Link } from "react-router-dom";
 import PostNewContent from './PostNewContent/PostNewContent';
+import MyRecipe from './MyRecipe/MyRecipe';
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -9,8 +11,16 @@ import {
   CDBSidebarFooter,
 } from 'cdbreact';
 
+
 // addNewContent: append a new content to the database, and is being passed on to the PostNewContent.jsx as prop
-export default function UserPage({ addNewContent }) {
+export default function UserPage({pageType}) {
+  
+  //the subPage is a hash map and decides which subpage to call based on the url param
+  const subPage = {
+    "myrecipe": <MyRecipe/>,
+    "post": <PostNewContent/>
+  }
+
   return (
     <>
       <div className="d-flex">
@@ -18,8 +28,8 @@ export default function UserPage({ addNewContent }) {
           <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>My Account</CDBSidebarHeader>
           <CDBSidebarContent>
             <CDBSidebarMenu>
-              <CDBSidebarMenuItem icon="fa-solid fa-plus">Post</CDBSidebarMenuItem>
-              <CDBSidebarMenuItem icon="fa-light fa-bowl-food">My Recipe</CDBSidebarMenuItem>
+              <Link to='/user/post'><CDBSidebarMenuItem icon="fa-solid fa-plus">Post</CDBSidebarMenuItem></Link>
+              <Link to="/user/myrecipe"><CDBSidebarMenuItem icon="fa-light fa-bowl-food">My Recipe</CDBSidebarMenuItem></Link>
               <CDBSidebarMenuItem icon="fa-regular fa-note-sticky">My Blog</CDBSidebarMenuItem>
               <CDBSidebarMenuItem icon="fa-regular fa-user">My Account</CDBSidebarMenuItem>
             </CDBSidebarMenu>
@@ -32,10 +42,8 @@ export default function UserPage({ addNewContent }) {
           </CDBSidebarFooter>
         </CDBSidebar>
 
-        {/* TODO: The function will change to other section based on what was clicked on the sidebar
-        possible section: My recipe, my post, my account */}
         <div className="mx-auto" >
-          <PostNewContent addNewContent={addNewContent}/>
+          {subPage[pageType]}
         </div>
       </div>
     </>

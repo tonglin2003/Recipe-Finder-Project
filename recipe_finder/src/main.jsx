@@ -16,9 +16,13 @@ import Header from './components/common/Header/Header';
 import Footer from './components/common/Footer/Footer';
 import RecipePage from './WebPages/RecipePage/RecipePage';
 import ErrorPage from './ErrorPage/ErrorPage';
+import EditRecipe from './WebPages/UserPage/MyRecipe/EditRecipe';
 
 // website loader
-import { loader as recipeLoader } from './WebPages/RecipePage/RecipePage';
+import { singleRecipeLoader } from './RequestAPI/RecipeRequest/FetchRecipesAPI';
+import { allRecipeLoader } from './RequestAPI/RecipeRequest/FetchRecipesAPI';
+import { updateRecipe } from './RequestAPI/RecipeRequest/UpdateRecipesAPI';
+import { DeleteRecipe } from './RequestAPI/RecipeRequest/DeleteRecipesAPI';
 
 function App() {
   const [breedList, setBreedList] = useState([
@@ -39,11 +43,16 @@ function App() {
       <Route path="/" element={<Navigate to="home" replace />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/search" element={<SearchPage />} />
-      <Route path="/user/recipe" element={<UserPage />} />
       <Route path="/breedpedia" element={<Breedpedia breedList={breedList} />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/recipe/:recipeId" element={<RecipePage />} loader={recipeLoader} />
+      <Route path="/recipe/:recipeId" element={<RecipePage />} loader={singleRecipeLoader} />
+
+      <Route path="/user/myrecipe" element={<UserPage pageType={'myrecipe'}/>} loader={allRecipeLoader}/>
+      <Route path="/user/post" element={<UserPage pageType={'post'}/>}/>
+
+      <Route path="/user/edit/:recipeId" element={<EditRecipe/>} loader={singleRecipeLoader} action={updateRecipe}/>
+
     </Route>
   );
 

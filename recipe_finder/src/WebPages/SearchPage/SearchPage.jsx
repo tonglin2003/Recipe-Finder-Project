@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards"
 import { useEffect, useState } from "react";
-import { fetchAllRecipe } from '../../RequestAPI/RecipesAPI';
+import { fetchAllRecipe } from '../../RequestAPI/RecipeRequest/FetchRecipesAPI';
 
 
 
