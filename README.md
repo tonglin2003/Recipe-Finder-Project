@@ -23,6 +23,7 @@ Iteration 5:
 
 
 Iteration 6: (Update and delete)
+  - Change the Router to the newest 6.4 version to able to use loader and action. But used a bit different format to the tutorial but they are the same.
   - Update function is located inside the "{url}/user/myrecipe" and triggered by clicking the Edit button
   - the delete function is located next to the edit button
 
