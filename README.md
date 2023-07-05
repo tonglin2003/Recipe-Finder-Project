@@ -26,7 +26,7 @@ Iteration 6: (Update and delete)
   - Change the Router to the newest 6.4 version to able to use loader and action. But used a bit different format to the tutorial but they are the same.
   - Update function is located inside the "{url}/user/myrecipe" and triggered by clicking the Edit button
   - the delete function is located next to the edit button
+  - allowed connection from frontend to "backend" to sign up user
+  - allowed connection from frontend to "backend" to login for user
 
 
-One thing to note:
-  - the encryption of the password will be performed on the server side (node.js) for better security

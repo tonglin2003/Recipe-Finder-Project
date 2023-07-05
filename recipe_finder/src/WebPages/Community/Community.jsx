@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 // display multiple recipe cards, takes in attr, recipeList, an array of recipe obj
 import DisplayMultipleCards from "../../components/common/DisplayCards/DisplayMultipleCards";
 
 import '../../components/common/Button-74.css';
-import './Breedpedia.css'
+import './Community.css'
 
-function Breedpedia({ breedList }) {
+function Community() {
+  const blogList = useLoaderData();
 
   return (
     <>
@@ -25,10 +27,10 @@ function Breedpedia({ breedList }) {
       </section>
 
       <section className='mx-auto w-75'>
-        <DisplayMultipleCards breedList={breedList}/>
+        <DisplayMultipleCards blogList={blogList}/>
       </section>
     </>
   )
 }
 
-export default Breedpedia;
+export default Community;

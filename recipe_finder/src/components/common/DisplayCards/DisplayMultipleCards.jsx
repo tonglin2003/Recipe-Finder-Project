@@ -1,8 +1,8 @@
 import React from 'react';
 import DisplayRecipeSingleCard from "./DisplayRecipeSingleCard";
-import DisplayBreedCard from './DisplayBreedCard'; 
+import DisplayBlogCard from './DisplayBlogCard'; 
 
-export default function DisplayMultipleCards({ recipeList, breedList })
+export default function DisplayMultipleCards({ recipeList, blogList })
 {
      return(
         <>
@@ -17,8 +17,8 @@ export default function DisplayMultipleCards({ recipeList, breedList })
                         })) 
                         :
                         (
-                            breedList.map((breed, index) => {
-                                return <DisplayBreedCard breed={breed} key={index}/>;
+                            blogList.map((blog, index) => {
+                                return <DisplayBlogCard blog={blog} key={index}/>;
                             })
                         )
                     }
