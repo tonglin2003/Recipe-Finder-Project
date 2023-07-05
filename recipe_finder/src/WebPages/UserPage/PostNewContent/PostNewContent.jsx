@@ -86,6 +86,7 @@ export default function PostNewContent() {
               type='text'
               name='title'
               onChange={handleOnChange}
+              required
             />
           </div>
           <div className="postContentInput my-4">
@@ -95,6 +96,7 @@ export default function PostNewContent() {
               name = 'imgUrl'
               onChange={handleOnChange}
               value={imgUrl}
+              required
             />
           </div>
           <div className="postContentInput my-4">

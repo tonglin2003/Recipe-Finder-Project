@@ -2,7 +2,7 @@
   "recipe": [
     {
       "id": 1,
-      "title": "Homemade Dog Treat (Edited Version)",
+      "title": "Homemade Dog Treat (Edited Version 5nd)",
       "content": "",
       "imgUrl": "https://www.allrecipes.com/thmb/fedSW4_1HVEqm9lXlForeBsU7rY=/364x242/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2):format(webp)/133123-Peanut-Butter-and-Pumpkin-Dog-Treats-mfs-015-292437ac8ace4b019bb2a99ba7745f18.jpg",
       "rate": 4,
@@ -60,6 +60,16 @@
       "tag": "dog",
       "imgUrl": "https://www.lovefromtheoven.com/wp-content/uploads/2015/08/dog-cake-recipe.jpg",
       "id": 7
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johnDoe@gmail.com",
+      "username": "JOHN DOE",
+      "password": "1234"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { useLoaderData,useParams, Form } from "react-router-dom";
+import { useLoaderData, useParams, Form } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import { MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
@@ -6,29 +6,13 @@ import { MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
 
 export default function EditRecipe()
 {
+    // loading the recipe based on current recipe id from the loader
     const {recipe} = useLoaderData();
 
-    const [formContent, setFormContent] = useState({
-        title: recipe.title,
-        content: recipe.content,
-        tag: recipe.tag,
-        imgUrl: recipe.imgUrl
-      });
-
-    const { title, content, tag, imgUrl } = formContent;
-
-    const handleOnChange = (event) => {
-        setFormContent((formContent) => ({
-          ...formContent,
-          [event.target.name]: event.target.value
-        }));
-      };
 
       function handleUpdate(){
-        alert(formContent.title);
-      };
-
-
+        alert("We are updating...");
+      }
 
     return (
         <>
@@ -38,10 +22,9 @@ export default function EditRecipe()
                 <div className="postContentInput my-4">
                     <MDBInput
                     label='Title'
-                    value={title}
+                    defaultValue={recipe.title}
                     type='text'
                     name='title'
-                    onChange={handleOnChange}
                     />
                 </div>
                 <div className="postContentInput my-4">
@@ -49,16 +32,14 @@ export default function EditRecipe()
                     type="text"
                     label="Image Url"
                     name = 'imgUrl'
-                    onChange={handleOnChange}
-                    value={imgUrl}
+                    defaultValue={recipe.imgUrl}
                     />
                 </div>
                 <div className="postContentInput my-4">
                     <MDBTextArea
                     label='Content'
-                    value={content}
+                    defaultValue={recipe.content}
                     name='content'
-                    onChange={handleOnChange}
                     rows={4}
                     />
                 </div>
@@ -70,8 +51,7 @@ export default function EditRecipe()
                         type="radio"
                         value="dog"
                         name="tag"
-                        checked={tag === 'dog'}
-                        onChange={handleOnChange}
+                        defaultChecked={recipe.tag === 'dog'}
                         />
                         Dog
                     </label>
@@ -80,8 +60,7 @@ export default function EditRecipe()
                         type="radio"
                         value="cat"
                         name="tag"
-                        checked={tag === 'cat'}
-                        onChange={handleOnChange}
+                        defaultChecked={recipe.tag === 'cat'}
                         />
                         Cat
                     </label>

@@ -27,3 +27,6 @@ Iteration 6: (Update and delete)
   - Update function is located inside the "{url}/user/myrecipe" and triggered by clicking the Edit button
   - the delete function is located next to the edit button
 
+
+One thing to note:
+  - the encryption of the password will be performed on the server side (node.js) for better security

@@ -2,8 +2,6 @@ import { redirect } from "react-router-dom"
 
 export function DeleteRecipe({ params }) {
     return new Promise((resolve, reject) => {
-      // Perform the deletion logic
-      // Example: make an API request to delete the recipe
       fetch(`http://localhost:3000/recipe/${params}`, {
         method: "DELETE",
       })

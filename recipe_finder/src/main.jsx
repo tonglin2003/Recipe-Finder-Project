@@ -22,7 +22,9 @@ import EditRecipe from './WebPages/UserPage/MyRecipe/EditRecipe';
 import { singleRecipeLoader } from './RequestAPI/RecipeRequest/FetchRecipesAPI';
 import { allRecipeLoader } from './RequestAPI/RecipeRequest/FetchRecipesAPI';
 import { updateRecipe } from './RequestAPI/RecipeRequest/UpdateRecipesAPI';
-import { DeleteRecipe } from './RequestAPI/RecipeRequest/DeleteRecipesAPI';
+import { DeleteRecipe } from './RequestAPI/RecipeRequest/DeleteRecipesAPI'; // the function was called inside the "user/myrecipe" as a function, not action
+import { UserSignUp } from './RequestAPI/UserAccountRequest/UserSignUp';
+import { UserLogin } from './RequestAPI/UserAccountRequest/UserLogin';
 
 function App() {
   const [breedList, setBreedList] = useState([
@@ -44,8 +46,8 @@ function App() {
       <Route path="/home" element={<HomePage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/breedpedia" element={<Breedpedia breedList={breedList} />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} action={UserSignUp} />
+      <Route path="/login" element={<Login />} action={UserLogin}/>
       <Route path="/recipe/:recipeId" element={<RecipePage />} loader={singleRecipeLoader} />
 
       <Route path="/user/myrecipe" element={<UserPage pageType={'myrecipe'}/>} loader={allRecipeLoader}/>
