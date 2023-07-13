@@ -27,6 +27,7 @@ import { updateRecipe } from './RequestAPI/RecipeRequest/UpdateRecipesAPI';
 import { DeleteRecipe } from './RequestAPI/RecipeRequest/DeleteRecipesAPI'; // the function was called inside the "user/myrecipe" as a function, not action
 import { UserSignUp } from './RequestAPI/UserAccountRequest/UserSignUp';
 import { UserLogin } from './RequestAPI/UserAccountRequest/UserLogin';
+import { newPost } from './RequestAPI/RecipeRequest/UpdateRecipesAPI';
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
       <Route path="/recipe/:recipeId" element={<RecipePage />} loader={singleRecipeLoader} />
 
       <Route path="/user/myrecipe" element={<UserPage pageType={'myrecipe'}/>} loader={allRecipeLoader}/>
-      <Route path="/user/post" element={<UserPage pageType={'post'}/>}/>
+      <Route path="/user/post" element={<UserPage pageType={'post'}/>} action={newPost}/>
 
       <Route path="/user/edit/:recipeId" element={<EditRecipe/>} loader={singleRecipeLoader} action={updateRecipe}/>
 
