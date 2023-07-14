@@ -27,13 +27,14 @@ function HomePage( ) {
 
     async function fetchRecipes()
     {
-      const response = await fetch('http://localhost:3000/recipe');
+      const response = await fetch('http://localhost:4000/recipes');
       const recipes = await response.json();
 
       if (!ignoreUseEffect) {
         setCurrentList(recipes);
         setFullList(recipes)
       }
+      console.log(currentList);
       return currentList;
     }
 

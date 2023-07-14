@@ -29,8 +29,9 @@ export function fetchAllRecipe()
 // allRecipeLoader, the loader that will display all recipes in db
 export async function allRecipeLoader({params})
 {
-    const allRecipeResponse = await fetch(`http://localhost:3000/recipe/`)
+    const allRecipeResponse = await fetch(`http://localhost:4000/recipes/`)
     const allRecipe = await allRecipeResponse.json()
+    console.log("homepage: " + allRecipe);
     return allRecipe;
 }
 
