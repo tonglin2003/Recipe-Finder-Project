@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 
 // display multiple recipe cards, takes in attr, recipeList, an array of recipe obj
@@ -17,45 +18,20 @@ import OrderBySelection from "../../components/common/OrderBySelection/OrderBySe
 import './HomePage.css';
 import '../../components/common/Button-74.css';
 
-function HomePage( ) {
-  const [fullList, setFullList] = useState([]);
-  const [currentList, setCurrentList] = useState([]);
-
-  // fetch for recipes from the database
-  useEffect( () => {
-    let ignoreUseEffect = false;
-
-    async function fetchRecipes()
-    {
-      const response = await fetch('http://localhost:4000/recipes');
-      const recipes = await response.json();
-
-      if (!ignoreUseEffect) {
-        setCurrentList(recipes);
-        setFullList(recipes)
-      }
-      console.log(currentList);
-      return currentList;
-    }
-
-    fetchRecipes();
-
-    return () => {
-      ignoreUseEffect = true;
-    }
-
-  }, []);
+function HomePage( ) {  
+  const [currentList, setCurrentList] = useState(useLoaderData());
+  const fullList = useLoaderData();
 
   // change the currentList to match the filter that user chose
   const applyFilter = (tag) => {
     setCurrentList(fullList.filter(element => element['tag'] === tag));
+    console.log(fullList);
   }
 
     // change the currentList to match the order that user chose
   const applyOrderBy = (order) => {
     const orderedList = [...currentList].sort((element1, element2) => element2[order] - element1[order]);
     setCurrentList(orderedList);
-    console.log(currentList);
   }
   
   return (

@@ -39,7 +39,7 @@ export async function allRecipeLoader({params})
 // it will need the id of the recipe to display
 export async function singleRecipeLoader({params})
 {
-    const recipeResponse = await fetch(`http://localhost:3000/recipe/${params.recipeId}`)
+    const recipeResponse = await fetch(`http://localhost:4000/recipes/${params.recipeId}`)
     const recipe = await recipeResponse.json()
 
     return {recipe};
