@@ -2,52 +2,53 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('pet_recipe', {
-      recipe_id: {
+    await queryInterface.createTable('blog', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      content: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
       img_url: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
-      tag: {
+      blog_title: {
         type: Sequelize.STRING,
-        allowNull: false
-      },
-      rate:{
-        type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true,
+      },
+      blog_content: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      popularity: {
+        type: Sequelize.INTEGER,
         defaultValue: 0
       },
-      popularity:{
+      UserId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 0
+        references: {
+          model: "user",
+          key: "uid",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
       created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updated_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('pet_recipe');
+    await queryInterface.dropTable('blog');
   }
 };
