@@ -25,20 +25,27 @@ export async function newPost({request})
     if (formInfo.postType === "recipe")
     {
         // call function to post recipe in db
-        postRecipe();
+        postRecipe(formInfo);
+        alert("Your recipe is added successfully!");
+
     }
     // elif (formInfo.postType === "blog")
     // {
     //     // call function to post blog in db
     // }
-    return redirect('/home');
+    return redirect('/home', {
+        headers: {
+          'Cache-Control': 'no-cache', // Ensure the page is not cached
+          'Refresh': '0', // Refresh the page immediately
+        },
+      });
 
 }
 
 async function postRecipe( formInfo )
 {
     try{
-        const response = await fetch(`http://localhost:3000/blog`, {
+        const response = await fetch(`http://localhost:4000/recipes`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

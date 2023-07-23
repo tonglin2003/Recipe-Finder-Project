@@ -36,7 +36,7 @@ function App() {
   const routes = createRoutesFromElements(
     <Route path="/" element={<Header />} errorElement={<ErrorPage />}>
       <Route path="/" element={<Navigate to="home" replace />} />
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/home" element={<HomePage />} loader={allRecipeLoader}/>
       <Route path="/search" element={<SearchPage />} />
       <Route path="/community" element={<Community/>} loader={FetchAllBlogLoader} />
       <Route path="/signup" element={<SignUp />} action={UserSignUp} />
