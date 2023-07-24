@@ -27,9 +27,16 @@ router.post("/signup", async (req, res)=>{
             user: user.username
     });
     } catch (error) {
+        if (error.name === "SequelizeValidationError") {
+            return res.status(422).json({errors: err.errors.map((e)=> e.message)});
+        }
+        else if (error.name === "SequelizeUniqueConstraintError")
+        {
+            return res.status(422).json({errors: "this username is being used by another user"});
+        }
         res.status(500).json({
-            message: "Error occurred when creating user",
-            error: error.message || "Internal server error",
+            message: "Error occured while creating user",
+            errors: error
         });
     }
 });
@@ -41,32 +48,30 @@ router.post("/login", async (req, res)=>{
         // find email inside db or not
         const user = await User.findOne({where: {email: req.body.email}});
 
-        if (user === null){
-            res.status(401).json({message: "incorrect email or password"});
-        }
+        if (user === null) {
+            return res.status(401).json({ message: "incorrect email or password" });
+          }
         
-        bcrypt.compare(req.body.password, user.password, (err, result)=>{
-            if (result){
+        // Compare passwords using bcrypt.compare as a Promise
+        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+
+        if (isPasswordCorrect) {
             // save user in the session
             req.session.userId = user.uid;
-
-            // response 201 if good and return the username
-            res.status(201).json({
-                message: "The user was created successfully",
-                user: user.username
+            return res.status(200).json({
+              message: "Login successful",
+              user: user.username,
             });
-            }
-            else{
-                res.status(401).json({message: "Incorrect Password"});
-            }
-        })
+          } else {
+            return res.status(401).json({ message: "incorrect email or password" });
+          }
 
     } catch (error) {
         // catch error if any occured
-        res.status(500).json({
-            message: "Error occured when creating user",
+        return res.status(500).json({
+            message: "Error occurred when creating user",
             error: error
-        });
+          });
     }
 });
 

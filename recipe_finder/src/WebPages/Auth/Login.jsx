@@ -1,10 +1,14 @@
-import './UserSignUpLogin.css';
+import './Auth.css';
 import { MDBInput } from 'mdb-react-ui-kit';
-import { useNavigate, Link, Form } from "react-router-dom";
+import { useContext } from 'react';
+import { useNavigate, Link, Form, Navigate } from "react-router-dom";
+import { AuthContext } from '../../Contexts/AuthContext';
 
 export default function Login()
 {
-    const navigate = useNavigate();
+    const {currentUser} = useContext(AuthContext);
+    // console.log("My user is!!" + currentUser);
+    if (currentUser) return(<Navigate to="/user/post"/>)   
     return(
         <>
         <div className="d-flex" style={{height: "100vh"}}>

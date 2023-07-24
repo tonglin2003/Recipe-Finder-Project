@@ -3,9 +3,15 @@ const app = express();
 const port = 4000;
 require("dotenv").config();
 const session = require("express-session");
+const cors = require("cors");
 
-const cors = require('cors');
-app.use(cors());
+app.use(
+    cors({
+      origin: "http://localhost:5173",
+      allowedHeaders: ["Content-Type", "Authorization"],
+      methods: ["GET", "POST", "PATCH", "DELETE"],
+    })
+  );
 
 // middle ware that allow node to read json for input
 app.use((req,res,next)=>{
@@ -14,6 +20,7 @@ app.use((req,res,next)=>{
     });
     next();
 })
+
 
 app.use(express.json());
 

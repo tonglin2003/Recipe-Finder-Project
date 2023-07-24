@@ -1,4 +1,4 @@
-import './UserSignUpLogin.css';
+import './Auth.css';
 import { MDBInput } from 'mdb-react-ui-kit';
 import { useNavigate, Form, Link } from "react-router-dom";
 

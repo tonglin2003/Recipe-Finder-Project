@@ -1,10 +1,31 @@
 import './Header.css';
 import SearchBar from '../SearchBar/SearchBar';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigation, useLoaderData } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+
+import { useEffect, useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthContext';
+
+export async function loader({ request }){
+    const response = await fetch("/api/auth/current_user");
+
+    if (response.ok){
+        const { user } = await response.json();
+        return { currentUser: user };
+    }
+    return { currentUser: null };
+}
+
 
 export default function Header()
 {
+    const {currentUser} = useLoaderData();
+    const { setCurrentUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        setCurrentUser(currentUser);
+    }, [currentUser]);
+    
     return(
         <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top" id="headerNavBar">
